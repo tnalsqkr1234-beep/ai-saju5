@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "lib": [
+      "DOM",
+      "ES2019",
       "dom",
       "dom.iterable",
       "esnext"
@@ -24,7 +26,9 @@
       "@/*": [
         "*"
       ]
-    }
+    },
+    "target": "ES2019",
+    "downlevelIteration": true
   },
   "include": [
     "next-env.d.ts",
