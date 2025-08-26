@@ -17,12 +17,12 @@ export async function POST(req: NextRequest) {
     if (!html) return NextResponse.json({ error: "Missing html" }, { status: 400 });
 
     // Launch headless Chrome (Vercel-friendly)
-    const execPath = await chromium.executablePath;
+    const execPath = await chromium.executablePath();
     const browser = await puppeteer.launch({
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
       executablePath: execPath,
-      headless: chromium.headless
+      headless: true
     });
 
     const page = await browser.newPage();
