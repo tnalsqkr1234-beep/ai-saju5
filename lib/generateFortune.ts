@@ -210,8 +210,6 @@ export function generateReport(input: Inputs, mode: ReportMode = "today") {
     ``
   ].join("\n");
 
-  const headerWithIntro = [professionalIntro, header].join("\n\n");
-
   const header = [
     `# 마음사주 · MBTI 리포트`,
     `- 이름: ${ctx.name}`,
@@ -226,9 +224,11 @@ export function generateReport(input: Inputs, mode: ReportMode = "today") {
     `1. 오늘 운세` + (mode === "today" ? "" : `\n2. 주간 운세\n3. 월간 운세\n4. 연간 운세`),
     `---`
   ].join("\n");
+  const headerWithIntro = [professionalIntro, header].join("
 
-  const headerWithIntro = [professionalIntro, header].join("\n\n");
+");
 
+  // Build "오늘"
   // Build "오늘"
   const todayBlocks = [
     buildSection(rng, "오늘 · 총운", ctx, T_GENERAL, Math.floor(targets.today * 0.35)),
