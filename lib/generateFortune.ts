@@ -37,10 +37,11 @@ const luckyItemMap: Record<string, string> = {
 
 function pickFromMBTI(mbti?: string) {
   if (!mbti) return { color: "화이트", number: 8, item: "심플 볼펜" };
-  const letters = new Set(mbti.toUpperCase().split(""));
-  const color = Array.from(letters).map(l => luckyColorMap[l]).filter(Boolean)[0] || "화이트";
-  const number = Array.from(letters).map(l => luckyNumberMap[l]).filter(Boolean)[0] || 8;
-  const item = Array.from(letters).map(l => luckyItemMap[l]).filter(Boolean)[0] || "심플 볼펜";
+const letters = new Set(mbti.toUpperCase().split(""));
+const arr = Array.from(letters);
+const color  = arr.map(l => luckyColorMap[l]).find(Boolean) || "화이트";
+const number = arr.map(l => luckyNumberMap[l]).find(Boolean) || 8;
+const item   = arr.map(l => luckyItemMap[l]).find(Boolean) || "심플 볼펜";
   return { color, number, item };
 }
 
