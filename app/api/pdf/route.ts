@@ -38,7 +38,8 @@ export async function POST(req: NextRequest) {
     });
 
     await browser.close();
-    return new NextResponse(pdf, {
+    const pdfArray = new Uint8Array(pdf as any);
+    return new Response(pdfArray, {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
